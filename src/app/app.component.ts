@@ -10,9 +10,9 @@ export class AppComponent implements OnInit{
   title = 'expense-tracker';
   constructor(public authService:AuthService){}
   ngOnInit(): void {
-    (window as any).dataLayer = (window as any).dataLayer || [];
-    function gtag() {
-      (window as any).dataLayer.push(arguments);
+   (window as any).dataLayer = (window as any).dataLayer || [];
+    function gtag(...args: any[]) {
+      (window as any).dataLayer.push(args);
     }
 
     gtag('js', new Date());
