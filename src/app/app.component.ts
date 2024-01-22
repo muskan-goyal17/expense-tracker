@@ -10,6 +10,13 @@ export class AppComponent implements OnInit{
   title = 'expense-tracker';
   constructor(public authService:AuthService){}
   ngOnInit(): void {
+    (window as any).dataLayer = (window as any).dataLayer || [];
+    function gtag() {
+      (window as any).dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'GTM-W3GBB79F');
     const localToken=localStorage.getItem('LEAD_ID');
     if(localToken){
       this.authService.authAfterReferesh(true,localToken);
